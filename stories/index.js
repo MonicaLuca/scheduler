@@ -10,7 +10,11 @@ import DayListItem from "components/DayListItem"
 import DayList from "components/DayList"
 import InterviewerListItem from "components/InterviewerListItem"
 import InterviewerList from "components/InterviewerList"
+import Appointment from "components/Appointment/index"
+import Header from "components/Appointment/Header"
+import Empty from "components/Appointment/Empty"
 
+//Stories for Button
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -27,6 +31,7 @@ storiesOf("Button", module)
     </Button>
   ));
 
+//Stories for DayListItem
   storiesOf("DayListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -38,6 +43,7 @@ storiesOf("Button", module)
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
   ));
 
+  //Stories for DayList
   const days = [
     {
       id: 1,
@@ -67,7 +73,7 @@ storiesOf("Button", module)
       <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
     ));
 
-
+//Stories for InterviewerListItem
   const interviewer = {
     id: 1,
     name: "Sylvia Palmer",
@@ -98,11 +104,11 @@ storiesOf("Button", module)
         id={interviewer.id}
         name={interviewer.name}
         avatar={interviewer.avatar}
-        setInterviewer={action("setInterviewer")}
+        setInterviewer={event => action("setInterviewer")(interviewer.id)}
       />
     ));
 
-
+  //Stories for interviewerList
     const interviewers = [
       { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
       { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -128,3 +134,15 @@ storiesOf("Button", module)
           setInterviewer={action("setInterviewer")}
         />
       ));
+
+
+// Stories for Appointment
+
+storiesOf("Appointment", module)
+  .addParameters({
+    backgrounds: [{ name: "white", value: "#fff", default: true }]
+  })
+  .add("Appointment", () => <Appointment />)
+  // .add("Appointment with Time", () => <Appointment time="12pm" />);
+  .add("Header", () => <Header time="12pm" />)
+  .add("Empty", () => <Empty onAdd={action("onAdd")} />)
