@@ -1,13 +1,16 @@
 import React from "react";
-// import classnames from 'classnames/bind'
-// import "./InterviewerList.scss";
-// import InterviewerListItem from "./InterviewerListItem";
 import "./styles.scss";
+import Header from "./Header"
+import Show from "./Show"
+import Empty from "./Empty"
 
 
 export default function Appointment(props) {
 
   return (
-  <article className="appointment">  </article>
+  <article className="appointment">  
+  <Header time={props.time}/>
+  {props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer}/> : <Empty />}
+  </article>
   )
 };
