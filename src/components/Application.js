@@ -59,7 +59,7 @@ export default function Application(props) {
   const [day, setDay] = useState("Monday")
   const [days, setDays] = useState([]);
 
-
+  //renders data for days (nav bar)
   useEffect(() =>{
     axios
       .get("/api/days")
