@@ -1,5 +1,3 @@
-import Appointment from "components/Appointment"
-
 export function getAppointmentsForDay(state, day) {
   if (state.days.length === 0) return [];
   // find correct and remove appointments
