@@ -34,3 +34,21 @@ export function getInterview(state, interviewer){
       return null
     }
 }
+
+export function getInterviewersForDay(state, day){
+  if (state.days.length === 0) return [];
+  let interviewersForDay = undefined;
+  for (let dayObj of state.days) {
+      if (dayObj.name === day) 
+        interviewersForDay =  dayObj.interviewers;
+  }
+  if (!interviewersForDay) return [];
+  const result = [];
+  for (let interviewer in state.interviewers) {
+     if (interviewersForDay.includes(state.interviewers[interviewer].id)){ 
+        result.push(state.interviewers[interviewer]);
+     }
+  }
+  return result
+}
+
