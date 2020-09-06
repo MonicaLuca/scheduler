@@ -11,6 +11,26 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "./he
 
 export default function Application(props) {
 
+  function cancelInterview(id){
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    }
+    const appointments = {
+      ...state.appointments,
+      [id]:appointment
+    }
+    return axios.delete(`api/appointments/${id}`)
+      .then(() => {
+        setState({
+          ...state,
+          appointments
+        });
+      })
+  }
+
+
+
 function bookInterview(id, interview) {
   // console.log(id, interview);
   const appointment = {
@@ -29,6 +49,8 @@ function bookInterview(id, interview) {
     });
   })
 }
+
+
 
 const setDay = day => 
 {
@@ -87,6 +109,7 @@ const setDay = day =>
             bookInterview={bookInterview}
             interview={getInterview(state, appointment.interview)}
             interviewers={getInterviewersForDay(state, state.day)}
+            cancelInterview={cancelInterview}
             />
           )) }
         <Appointment key="last" time="5pm" />
