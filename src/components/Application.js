@@ -11,12 +11,29 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "./he
 
 export default function Application(props) {
 
+function bookInterview(id, interview) {
+  // console.log(id, interview);
+  const appointment = {
+    ...state.appointments[id],
+    interview: { ...interview }
+  };
+  const appointments = {
+    ...state.appointments,
+    [id]: appointment
+  };
+  return axios.put(`/api/appointments/${id}`, {interview})
+  .then (() => {
+    setState({
+      ...state,
+      appointments
+    });
+  })
+}
 
 const setDay = day => 
 {
   setState( prev => ({ ...prev, day }))
 };
-
 
   const [state, setState] = useState({
     day: "Monday",
@@ -67,6 +84,7 @@ const setDay = day =>
             <Appointment 
             key={appointment.id}
             {...appointment}
+            bookInterview={bookInterview}
             interview={getInterview(state, appointment.interview)}
             interviewers={getInterviewersForDay(state, state.day)}
             />
