@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { __esModule } from "@testing-library/react/dist";
+import { useState, useEffect } from "react";
 import axios from 'axios';
+import "components/Application.scss";
 
 //custom hook that returns functions including: state, setDay bookInterview, and cancelInterview
 export default function useApplicationData(){
@@ -12,6 +12,24 @@ export default function useApplicationData(){
     interviewers: {}
   });
 
+  useEffect(() => {
+    setState(prev => ({...prev, days: prev.days.map(day => ({ ...day, spots: calcSpots(prev, day.name)}))}));
+  },[state.appointments])
+  
+  //calculates the number of spots left for a given day
+  const calcSpots = function (state, dayName) {
+    const day = state.days.find(day => (day.name === dayName))
+
+    const appObj = day.appointments.map(app =>(state.appointments[app]))
+    
+    let counter = 0
+      for (let app of appObj){
+       if (!app.interview){
+          counter++
+        }
+     }
+    return counter
+  };
   //renders the data for the days, appointments, and interviewers 
   useEffect(() =>{
   
@@ -44,7 +62,8 @@ export default function useApplicationData(){
     .then (() => {
       setState({
         ...state,
-        appointments
+        appointments,
+        // days
       });
     })
   }
@@ -63,11 +82,13 @@ export default function useApplicationData(){
       .then(() => {
         setState({
           ...state,
-          appointments
+          appointments,
+         
         });
       })
   }
 
+  //returns functions from useApplicationData hook that can be imported and reused
   return {
     state,
     setDay,

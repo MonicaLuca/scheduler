@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { __esModule } from "@testing-library/react/dist";
+import { useState } from "react";
+// import { __esModule } from "@testing-library/react/dist";
 
 export default function VisualMode(initial){
   const [history, setHistory] = useState([initial])
