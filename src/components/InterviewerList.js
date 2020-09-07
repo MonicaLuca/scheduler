@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import "./InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
+
 
 //returns an array of interviewers with appropriate styling at its initial state and when preselected
 export default function InterviewerList(props) {
@@ -16,6 +18,7 @@ export default function InterviewerList(props) {
       />
     );
   });
+  
 
   return (
   <section className="interviewers">
@@ -25,4 +28,10 @@ export default function InterviewerList(props) {
     </ul>
   </section> 
   )
+};
+
+
+//testing
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
 };

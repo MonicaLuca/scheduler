@@ -62,8 +62,7 @@ export default function useApplicationData(){
     .then (() => {
       setState({
         ...state,
-        appointments,
-        // days
+        appointments
       });
     })
   }
@@ -82,8 +81,7 @@ export default function useApplicationData(){
       .then(() => {
         setState({
           ...state,
-          appointments,
-         
+          appointments
         });
       })
   }
