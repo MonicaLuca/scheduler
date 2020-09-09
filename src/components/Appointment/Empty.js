@@ -1,10 +1,7 @@
 import React from "react";
-// import classnames from 'classnames/bind'
-// import "./InterviewerList.scss";
-// import InterviewerListItem from "./InterviewerListItem";
 import "./styles.scss";
 
-
+//exports Empty component which indicates an empyt appointment time slot
 export default function Empty(props) {
 
   return (
@@ -16,5 +13,5 @@ export default function Empty(props) {
       onClick={props.onAdd}
     />
   </main>
-  )
+  );
 };

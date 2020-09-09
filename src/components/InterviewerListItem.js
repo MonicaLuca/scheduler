@@ -1,7 +1,6 @@
 import React from "react";
-import classnames from 'classnames/bind'
+import classnames from 'classnames/bind';
 import "./InterviewerListItem.scss";
-
 
 //returns an individual interviewer with name, avatar, and embedded styling when it is selected, unselected, and clickable
 export default function InterviewerListItem(props) {
@@ -18,5 +17,5 @@ export default function InterviewerListItem(props) {
     />
     {props.selected && props.name}
   </li>
-  )
+  );
 };

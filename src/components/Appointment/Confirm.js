@@ -1,7 +1,8 @@
 import React from "react";
 import "./styles.scss";
-import Button from "../Button"
+import Button from "../Button";
 
+//exports the confirm component used to render a confirmation when user deletes an appointment 
 export default function Confirm(props) {
 
   return (

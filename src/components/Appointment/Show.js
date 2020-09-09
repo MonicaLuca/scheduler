@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
+//exports the show component which displays the details of a booked appointment
 
 export default function Show(props) {
 

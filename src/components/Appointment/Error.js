@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
+//exports Error component which displays appropriate error when user deletes or saves an appointment
 export default function Error(props) {
 
   return (
@@ -16,6 +17,6 @@ export default function Error(props) {
         onClick={props.onClose}
       />
     </main>
-  )
+  );
 };
 

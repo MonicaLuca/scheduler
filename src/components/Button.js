@@ -1,5 +1,5 @@
 import React from "react";
-import classnames from 'classnames/bind'
+import classnames from 'classnames/bind';
 import "./Button.scss";
 
 export default function Button(props) {
@@ -16,5 +16,5 @@ export default function Button(props) {
        {props.children}
      </button>
    );
- }
+ };
  

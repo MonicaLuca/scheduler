@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles.scss";
 
+//exports the status component which displays the loading screen when user is deleting or saving
+
 export default function Status(props) {
 
   return (

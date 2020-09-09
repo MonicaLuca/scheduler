@@ -1,5 +1,3 @@
-
-
 const fixtures = {
   days: [
     {
@@ -95,5 +93,4 @@ export default {
       statusText: 'No Content'
     });
   })
-
-}
+};
