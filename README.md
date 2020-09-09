@@ -7,7 +7,7 @@ Interview Scheduler is a react application that allows users to book and cancel 
 ### Scheduler Preview
 !["Screenshot of Scheduler Preview"](https://github.com/MonicaLuca/scheduler/blob/master/docs/scheduler-preview.png?raw=true)
 
-#### Appointment states including a booked appointment, create new appointment, edit appointment, and delete confirmation 
+### Appointment states including a booked appointment, create new appointment, edit appointment, and delete confirmation 
 !["Screenshot of appointment states"](https://github.com/MonicaLuca/scheduler/blob/master/docs/scheduler-appointment-func.png?raw=true)
 
 ### Sidebar Day List changes based on spot avaliability
