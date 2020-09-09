@@ -18,7 +18,6 @@ export default function VisualMode(initial){
     if (history.length > 1) {
       const newHistory = [...history.slice(0, history.length -1)];
       setHistory(newHistory)
-
     }
   };
 
